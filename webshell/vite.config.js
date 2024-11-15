@@ -2,17 +2,19 @@ import { defineConfig } from "vite";
 import { resolve } from 'path';
 
 export default defineConfig({
-  base: '/', // Ensure this is set to '/' for Netlify unless a subdirectory is needed
+  root: 'webshell', // Set 'webshell' as the root directory
+  base: '/',
   build: {
-    sourcemap: true, // Source map generation must be turned on
+    outDir: 'dist', // Output the build to 'webshell/dist'
+    sourcemap: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "./index.html"),
-        share: resolve(__dirname, "./share.html"),
+        main: resolve(__dirname, "webshell/index.html"),
+        share: resolve(__dirname, "webshell/share.html"),
       }
     }
   },
   server: {
     host: '0.0.0.0',
-  },
+  }
 });
