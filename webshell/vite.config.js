@@ -1,18 +1,5 @@
 import { defineConfig } from "vite";
-import { sentryVitePlugin } from "@sentry/vite-plugin";
-import { resolve } from 'path'
-
-const SENTRY_DSN = import.meta.env?.VITE_SENTRY_DSN
-let plugins = []
-if (SENTRY_DSN) {
-  plugins = [
-    sentryVitePlugin({
-      authToken: SENTRY_DSN,
-      org: "plastic-labs",
-      project: "yousim-web",
-    }),
-  ]
-}
+import { resolve } from 'path';
 
 export default defineConfig({
   base: '/', // Ensure this is set to '/' for Netlify unless a subdirectory is needed
@@ -28,5 +15,4 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
   },
-  plugins: plugins,
 });
