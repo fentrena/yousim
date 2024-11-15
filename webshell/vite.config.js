@@ -15,6 +15,7 @@ if (SENTRY_DSN) {
 }
 
 export default defineConfig({
+  base: '/', // Ensure this is set to '/' for Netlify unless a subdirectory is needed
   build: {
     sourcemap: true, // Source map generation must be turned on
     rollupOptions: {
